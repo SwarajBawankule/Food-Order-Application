@@ -1,0 +1,46 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+<div class="container">
+    <img [src]="food.imgUrl" alt="food.name" class="food-image">
+    <div class="details">
+        <div class="header">
+            <span class="name">
+                {{food.name}}
+            </span>
+            <span class="favorite {{food.favorite?'':'not'}}">
+                <i class="fas fa-heart"></i>
+            </span>
+        </div>
+
+        <div class="star-rating" data-rating="4.5">
+            <span class="star">&#9733;</span>
+            <span class="star">&#9733;</span>
+            <span class="star">&#9733;</span>
+            <span class="star">&#9733;</span>
+            <span class="star-half">&#9734;</span>
+            <span class="rating-value">4.5</span>
+        </div>
+         <!-- <div class="origins">
+            <span *ngFor="let origin of food.origins">
+                {{origin}}
+            </span>
+        </div>  -->
+
+        <div class="origins">
+            <span *ngFor="let origin of food.origin">{{ origin }}</span>
+          </div>
+
+        <div class="tag">
+            <app-tags [foodPageTags]="food.tags" justifyContent="start" ></app-tags>
+        </div>
+        <div class="cook-time">
+            <span>
+                Time to Cook About <strong>{{food.cookTime}}</strong> Minutes
+            </span>
+        </div>
+        <div class="price">
+            <span>{{food.price | currency}}</span>
+        </div>
+        <button>Add to Cart</button>
+    </div>
+</div>
